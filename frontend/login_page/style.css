@@ -1,0 +1,144 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8e8d1;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Panel */
+.left-panel {
+  background-color: #bb6429;
+  color: white;
+  flex: 1;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.govt-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emblem {
+  height: 70px;
+}
+
+.welcome-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.welcome-text span {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.illustration {
+  max-width: 80%;
+  height: auto;
+}
+
+/* Right Panel */
+.right-panel {
+  flex: 1;
+  background-color: #fcebd2;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: lowercase;
+  border-bottom: 1px solid #000;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+}
+
+.login-form label {
+  margin: 10px 0 5px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.login-form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.forgot {
+  font-size: 12px;
+  color: purple;
+  margin-bottom: 20px;
+  text-align: right;
+  text-decoration: none;
+}
+
+button {
+  padding: 14px;
+  font-size: 18px;
+  background-color: #195b94;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #144974;
+}
+
+.register-section {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.register-section a {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #195b94;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-panel, .right-panel {
+    flex: unset;
+    width: 100%;
+    padding: 30px;
+  }
+}
