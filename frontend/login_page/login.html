@@ -21,9 +21,9 @@
     </div>
     
     <div class="right-panel">
-      <h2 class="login-title">login</h2>
-      <form class="login-form">
-        <label for="username">Username or Aadhaar Number</label>
+      <h2 class="login-title">Login</h2>
+      <form class="login-form" id="login-form">
+        <label for="username">Phone or Aadhaar Number</label>
         <input type="text" id="username" placeholder="Enter your ID" required>
 
         <label for="password">Password</label>
@@ -35,10 +35,36 @@
 
         <div class="register-section">
           <p>Don't have an account?</p>
-          <a href="#">Register Now</a>
+          <a href="/frontend/register_page/register.html">Register Now</a>
         </div>
       </form>
     </div>
   </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const inputID = document.getElementById('username').value.trim();
+      const inputPassword = document.getElementById('password').value;
+
+      const storedUser = JSON.parse(localStorage.getItem('sevasetuUser'));
+
+      if (!storedUser) {
+        alert('No user found. Please register first.');
+        return;
+      }
+
+      const isIDMatch = inputID === storedUser.number || inputID === storedUser.aadhaar;
+      const isPasswordMatch = inputPassword === storedUser.password;
+
+      if (isIDMatch && isPasswordMatch) {
+        alert('Login successful!');
+        window.location.href = "/frontend/dashboard/dashboard.html"; // Update to your actual landing page
+      } else {
+        alert('Invalid credentials. Please try again.');
+      }
+    });
+  </script>
 </body>
 </html>
