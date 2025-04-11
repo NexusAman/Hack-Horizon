@@ -2,57 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SevaSetu Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SevaSetu - My Details</title>
   <link rel="stylesheet" href="style_base.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .dashboard-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .dashboard-card {
-      background: #fff3d6;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-    }
-
-    .dashboard-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .dashboard-card h4 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .dashboard-card p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    .quick-actions {
+    form {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      background-color: #fff3d6;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    input, select, textarea {
+      padding: 0.6rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #93600e;
+      color: white;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #a86b12;
+    }
+
+    #submitted-details {
+      margin-top: 2rem;
+      background-color: #fff3d6;
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 500px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .user-photo-section {
+      display: flex;
+      align-items: center;
       gap: 1rem;
     }
 
-    .quick-actions button {
-      flex: 1 1 150px;
+    #user-photo, #display-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #93600e;
     }
 
-    .sticky-nav {
-      position: sticky;
-      top: 0;
-    }
-
-    /* Chatbot Styling */
     .assistant-icon {
       position: fixed;
       bottom: 20px;
@@ -160,14 +170,6 @@
       background-color: #f0f0f0;
       align-self: flex-start;
     }
-
-    input, select, textarea {
-      padding: 0.6rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-
   </style>
 </head>
 <body>
@@ -188,52 +190,70 @@
   <div class="layout">
     <nav class="sticky-nav">
       <ul>
-        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="my_application.html">My Applications</a></li>
         <li><a href="available_scheme.html">Available Schemes</a></li>
         <li><a href="eligibility.html">Eligibility Checker</a></li>
-        <li><a href="my_details.html">My Details</a></li>
+        <li><a href="my_details.html" class="active">My Details</a></li>
       </ul>
     </nav>
 
     <main>
-      <h2>Welcome to Your Dashboard</h2>
+      <h2>My Details</h2>
+      <form id="details-form">
+        <div class="user-photo-section">
+          <img src="/frontend/default_user1.png" alt="User Photo" id="user-photo" />
+          <input type="file" id="photo-upload" accept="image/*" />
+        </div>
 
-      <div class="dashboard-cards">
-        <div class="dashboard-card">
-          <h4>Total Applications</h4>
-          <p>12 submitted applications</p>
-        </div>
-        <div class="dashboard-card">
-          <h4>Approved Benefits</h4>
-          <p>5 benefits currently active</p>
-        </div>
-        <div class="dashboard-card">
-          <h4>Pending Reviews</h4>
-          <p>3 applications under review</p>
-        </div>
-        <div class="dashboard-card">
-          <h4>Profile Completion</h4>
-          <p>80% complete — update your info</p>
-        </div>
-      </div>
+        <label>Aadhaar Number:</label>
+        <input type="text" id="aadhaar" placeholder="Enter 12-digit Aadhaar" maxlength="12" required />
 
-      <div class="card">
-        <h3>Quick Actions</h3>
-        <div class="quick-actions">
-          <button>Apply for Scheme</button>
-          <button>Check Eligibility</button>
-          <button>Download Documents</button>
-        </div>
+        <label>Phone Number:</label>
+        <input type="text" id="phone" placeholder="Enter phone number" required />
+
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter email (if available)" />
+
+        <label>Address:</label>
+        <textarea id="address" placeholder="Enter address" required></textarea>
+
+        <label>Age:</label>
+        <input type="number" id="age" placeholder="Enter age" required />
+
+        <label>Gender:</label>
+        <select id="gender" required>
+          <option value="">Select gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <label>Father / Guardian Name:</label>
+        <input type="text" id="guardian" placeholder="Enter father's/guardian's name" required />
+
+        <button type="submit">Save Details</button>
+      </form>
+
+      <div id="submitted-details" style="display:none;">
+        <h3>Your Information</h3>
+        <img id="display-photo" src="/frontend/assests/images/default_user1.png" />
+        <p><strong>Aadhaar:</strong> <span id="out-aadhaar"></span></p>
+        <p><strong>Phone:</strong> <span id="out-phone"></span></p>
+        <p><strong>Email:</strong> <span id="out-email"></span></p>
+        <p><strong>Address:</strong> <span id="out-address"></span></p>
+        <p><strong>Age:</strong> <span id="out-age"></span></p>
+        <p><strong>Gender:</strong> <span id="out-gender"></span></p>
+        <p><strong>Guardian:</strong> <span id="out-guardian"></span></p>
       </div>
     </main>
 
     <aside class="sidebar">
       <div class="card">
-        <h3><img src="/frontend/assests/images/notification.png" alt="notif_icon"> Notifications</h3>
+        <h3><img src="/frontend/assests/images/notification.png" alt="notif_icon" class="notify_icon"> Notifications</h3>
         <ul>
           <li>Update Aadhaar details</li>
-          <li>New housing scheme available</li>
+          <li>Complete profile to get better scheme matches</li>
         </ul>
       </div>
     </aside>
@@ -276,6 +296,33 @@
       controls.style.display = controls.style.display === "none" ? "flex" : "none";
     }
 
+    const form = document.getElementById("details-form");
+    const outDiv = document.getElementById("submitted-details");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      document.getElementById("out-aadhaar").textContent = document.getElementById("aadhaar").value;
+      document.getElementById("out-phone").textContent = document.getElementById("phone").value;
+      document.getElementById("out-email").textContent = document.getElementById("email").value || 'Not Provided';
+      document.getElementById("out-address").textContent = document.getElementById("address").value;
+      document.getElementById("out-age").textContent = document.getElementById("age").value;
+      document.getElementById("out-gender").textContent = document.getElementById("gender").value;
+      document.getElementById("out-guardian").textContent = document.getElementById("guardian").value;
+
+      const photo = document.getElementById("photo-upload").files[0];
+      if (photo) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById("display-photo").src = e.target.result;
+        }
+        reader.readAsDataURL(photo);
+      }
+
+      form.style.display = "none";
+      outDiv.style.display = "block";
+    });
+
     document.getElementById('send-btn').addEventListener('click', () => {
       const input = document.getElementById('chat-input');
       const msg = input.value.trim();
@@ -285,7 +332,6 @@
         msgBox.textContent = msg;
         document.getElementById('chat-messages').appendChild(msgBox);
         input.value = '';
-        document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
       }
     });
   </script>

@@ -1,40 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Schemes</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SevaSetu - Available Schemes</title>
+  <link rel="stylesheet" href="style_base.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .schemes-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .scheme-card {
+      background-color: #fff3d6;
+      border-radius: 12px;
+      padding: 1.2rem;
+      display: flex;
+      gap: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+
+    .scheme-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .scheme-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .scheme-details h3 {
+      margin: 0 0 0.4rem;
+    }
+
+    .scheme-details p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .scheme-details button {
+      margin-top: 0.5rem;
+      background-color: #93600e;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .scheme-details button:hover {
+      background-color: #a0570f;
+    }
+
+    /* Assistant Chat Styling */
+    .assistant-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #93600e;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .assistant-icon img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .chatbox {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 320px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .chatbox.show {
+      display: flex;
+    }
+
+    .chat-header {
+      background-color: #93600e;
+      color: white;
+      padding: 10px 16px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-controls-header span {
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      padding: 12px;
+      height: 180px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .chat-controls {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    #chat-input {
+      flex-grow: 1;
+      padding: 8px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #send-btn {
+      margin-left: 8px;
+      padding: 8px 12px;
+      background-color: #93600e;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .user-msg, .assistant-msg {
+      margin: 2px 0;
+      padding: 6px 10px;
+      border-radius: 8px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    .user-msg {
+      background-color: #E9D8A6;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .assistant-msg {
+      background-color: #f0f0f0;
+      align-self: flex-start;
+    }
+
+    input, select, textarea {
+      padding: 0.6rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
-    <div class="dashboard">
-        <aside class="sidebar">
-            <ul>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="applications.html">My Applications</a></li>
-                <li><a href="available-schemes.html">Available Schemes</a></li>
-                <li><a href="eligibility-checker.html">Eligibility Checker</a></li>
-                <li><a href="support.html">Support</a></li>
-                <li><a href="settings.html">Settings</a></li>
-            </ul>
-        </aside>
-        <main class="content">
-            <header class="header">
-                <h1>Available Schemes</h1>
-            </header>
-            <section class="schemes-list">
-                <div class="scheme">
-                    <h2>Housing Aid</h2>
-                    <p>Apply now to benefit from the new housing assistance program.</p>
-                    <button>Apply Now</button>
-                </div>
-                <div class="scheme">
-                    <h2>Health Assistance</h2>
-                    <p>Get health coverage and medical aid for eligible individuals.</p>
-                    <button>Check Eligibility</button>
-                </div>
-            </section>
-        </main>
+  <header>
+    <div>
+      <h1>SevaSetu</h1>
+      <h6>Government welfare awareness</h6>
     </div>
+    <div>
+      <select id="language-selector">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="gu">ગુજરાતી</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sticky-nav">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="my_application.html">My Applications</a></li>
+        <li><a href="available_scheme.html" class="active">Available Schemes</a></li>
+        <li><a href="eligibility.html">Eligibility Checker</a></li>
+        <li><a href="my_details.html">My Details</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>Available Government Schemes</h2>
+      <div class="schemes-list">
+        <div class="scheme-card">
+          <img src="/frontend/assests/images/ayushman-yojana.avif" />
+          <div class="scheme-details">
+            <h3>Ayushman Bharat Yojana</h3>
+            <p>Health coverage of ₹5 lakh per family/year.</p>
+            <button>Apply</button>
+          </div>
+        </div>
+
+        <div class="scheme-card">
+          <img src="/frontend/assests/images/kisan nidhi.jpeg.jpg" alt="PM Kisan" />
+          <div class="scheme-details">
+            <h3>PM Kisan Samman Nidhi</h3>
+            <p>₹6,000 yearly support to farmers in 3 installments.</p>
+            <button>Apply</button>
+          </div>
+        </div>
+
+        <div class="scheme-card">
+          <img src="/frontend/assests/images/mudra.avif" alt="Mudra Yojana" />
+          <div class="scheme-details">
+            <h3>PM Mudra Yojana</h3>
+            <p>Loans up to ₹10 lakh for small enterprises.</p>
+            <button>Apply</button>
+          </div>
+        </div>
+
+        <div class="scheme-card">
+          <img src="/frontend/assests/images/aawas_yojna.jpg" alt="PMAY" />
+          <div class="scheme-details">
+            <h3>PM Awas Yojana (PMAY)</h3>
+            <p>Affordable housing with home loan subsidies.</p>
+            <button>Apply</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="card">
+        <h3><img src="/frontend/assests/images/notification.png" alt="notif_icon" class="notify_icon" /> Notifications</h3>
+        <ul>
+          <li>PMAY application extended</li>
+          <li>New health scheme launched</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <div class="assistant-icon" onclick="toggleChatbox()">
+    <img src="/frontend/assests/images/assistant.png" alt="Assistant" />
+  </div>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chat-header">
+      SevaBot
+      <div class="chat-controls-header">
+        <span onclick="minimizeChatbox()">_</span>
+        <span onclick="closeChatbox()">✖</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="assistant-msg">Hello! Looking for a scheme?</div>
+    </div>
+    <div class="chat-controls">
+      <input type="text" id="chat-input" placeholder="Type a message..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChatbox() {
+      document.getElementById("chatbox").classList.toggle("show");
+    }
+
+    function closeChatbox() {
+      document.getElementById("chatbox").classList.remove("show");
+    }
+
+    function minimizeChatbox() {
+      const messages = document.getElementById("chat-messages");
+      const controls = document.querySelector(".chat-controls");
+      messages.style.display = messages.style.display === "none" ? "flex" : "none";
+      controls.style.display = controls.style.display === "none" ? "flex" : "none";
+    }
+
+    document.getElementById('send-btn').addEventListener('click', () => {
+      const input = document.getElementById('chat-input');
+      const msg = input.value.trim();
+      if (msg) {
+        const msgBox = document.createElement('div');
+        msgBox.className = 'user-msg';
+        msgBox.textContent = msg;
+        document.getElementById('chat-messages').appendChild(msgBox);
+        input.value = '';
+        document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+      }
+    });
+  </script>
 </body>
 </html>

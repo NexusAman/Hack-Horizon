@@ -3,56 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SevaSetu Dashboard</title>
+  <title>SevaSetu - My Applications</title>
   <link rel="stylesheet" href="style_base.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    .dashboard-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .dashboard-card {
-      background: #fff3d6;
+    .application-table table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff3d6;
       border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .dashboard-card:hover {
-      transform: translateY(-5px);
+    .application-table th,
+    .application-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
     }
 
-    .dashboard-card h4 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+    .application-table th {
+      background-color: #f2dfb3;
     }
 
-    .dashboard-card p {
-      font-size: 0.95rem;
-      color: #555;
+    .status {
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 0.9rem;
     }
 
-    .quick-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    .status.approved {
+      background-color: #d4edda;
+      color: #155724;
     }
 
-    .quick-actions button {
-      flex: 1 1 150px;
+    .status.pending {
+      background-color: #fff3cd;
+      color: #856404;
     }
 
-    .sticky-nav {
-      position: sticky;
-      top: 0;
+    .status.rejected {
+      background-color: #f8d7da;
+      color: #721c24;
     }
 
-    /* Chatbot Styling */
+    button {
+      background-color: #93600e;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #a86b12;
+    }
+
     .assistant-icon {
       position: fixed;
       bottom: 20px;
@@ -167,7 +178,6 @@
       border: 1px solid #ccc;
       border-radius: 6px;
     }
-
   </style>
 </head>
 <body>
@@ -188,8 +198,8 @@
   <div class="layout">
     <nav class="sticky-nav">
       <ul>
-        <li><a href="dashboard.html" class="active">Dashboard</a></li>
-        <li><a href="my_application.html">My Applications</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="my_application.html" class="active">My Applications</a></li>
         <li><a href="available_scheme.html">Available Schemes</a></li>
         <li><a href="eligibility.html">Eligibility Checker</a></li>
         <li><a href="my_details.html">My Details</a></li>
@@ -197,43 +207,62 @@
     </nav>
 
     <main>
-      <h2>Welcome to Your Dashboard</h2>
-
-      <div class="dashboard-cards">
-        <div class="dashboard-card">
-          <h4>Total Applications</h4>
-          <p>12 submitted applications</p>
-        </div>
-        <div class="dashboard-card">
-          <h4>Approved Benefits</h4>
-          <p>5 benefits currently active</p>
-        </div>
-        <div class="dashboard-card">
-          <h4>Pending Reviews</h4>
-          <p>3 applications under review</p>
-        </div>
-        <div class="dashboard-card">
-          <h4>Profile Completion</h4>
-          <p>80% complete — update your info</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Quick Actions</h3>
-        <div class="quick-actions">
-          <button>Apply for Scheme</button>
-          <button>Check Eligibility</button>
-          <button>Download Documents</button>
-        </div>
+      <h2>My Applications</h2>
+      <div class="application-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Scheme Name</th>
+              <th>Application ID</th>
+              <th>Status</th>
+              <th>Date Submitted</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Food Subsidy</td>
+              <td>FS123456</td>
+              <td><span class="status approved">Approved</span></td>
+              <td>10-Mar-2025</td>
+              <td>
+                <button>View</button>
+                <button>Download</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Health Assistance</td>
+              <td>HA789101</td>
+              <td><span class="status pending">Pending</span></td>
+              <td>22-Mar-2025</td>
+              <td>
+                <button>View</button>
+                <button>Withdraw</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Housing Aid</td>
+              <td>HH234567</td>
+              <td><span class="status rejected">Rejected</span></td>
+              <td>5-Apr-2025</td>
+              <td>
+                <button>View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </main>
 
     <aside class="sidebar">
       <div class="card">
-        <h3><img src="/frontend/assests/images/notification.png" alt="notif_icon"> Notifications</h3>
+        <h3>
+          <img src="/frontend/assests/images/notification.png" alt="notif_icon" class="notify_icon" />
+          Notifications
+        </h3>
         <ul>
+          <li>New housing scheme open</li>
           <li>Update Aadhaar details</li>
-          <li>New housing scheme available</li>
         </ul>
       </div>
     </aside>
@@ -252,7 +281,7 @@
       </div>
     </div>
     <div class="chat-messages" id="chat-messages">
-      <div class="assistant-msg">Hello! How can I help you today?</div>
+      <div class="assistant-msg">Hello! Need help with your applications?</div>
     </div>
     <div class="chat-controls">
       <input type="text" id="chat-input" placeholder="Type a message..." />
