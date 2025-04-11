@@ -1,0 +1,124 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-panel {
+  background-color: #bb6429;
+  color: white;
+  flex: 1;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.govt-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emblem {
+  height: 70px;
+}
+
+.welcome-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.left {
+  background-color: #d8906a;
+  color: white;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.left h1 {
+  font-size: 3em;
+}
+
+.illustration {
+  max-width: 80%;
+  height: auto;
+}
+
+.img-container img {
+  width: 10%;
+  margin-top: 20px;
+}
+
+.right {
+  flex: 1;
+  background-color: #fdf3e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.right h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 80%;
+  max-width: 400px;
+}
+
+label {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+p {
+  margin-top: 20px;
+}
+
+a {
+  color: #4CAF50;
+  text-decoration: none;
+}
