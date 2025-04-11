@@ -162,6 +162,12 @@ p {
   background: #a0522d;
 }
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.9s ;
+}
+
+
 /* Footer */
 footer {
   background: #333;
