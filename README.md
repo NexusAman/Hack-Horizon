@@ -24,7 +24,7 @@ Hack-Horizon is a citizen-centric platform designed to streamline access to vari
 
 ## 📦 Folder Structure
 
-Hack-Horizon <br> ├── frontend/ # UI and visual assets <br>
+Hack-Horizon <br>├── frontend/ # UI and visual assets <br>
               │ └── assests/images # Scheme and UI images <br>
               ├── backend/ # Node.js server and logic <br>
               │ ├── index.js # Entry point for backend <br>
