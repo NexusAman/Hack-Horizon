@@ -24,7 +24,13 @@ Hack-Horizon is a citizen-centric platform designed to streamline access to vari
 
 ## 📦 Folder Structure
 
-Hack-Horizon/ ├── frontend/ # UI and visual assets │ └── assests/images # Scheme and UI images ├── backend/ # Node.js server and logic │ ├── index.js # Entry point for backend │ ├── sendOtp.js # Handles OTP logic │ └── users.db # Local user database └── README.md # Project documentation
+Hack-Horizon/ ├── frontend/ # UI and visual assets 
+              │ └── assests/images # Scheme and UI images 
+              ├── backend/ # Node.js server and logic 
+              │ ├── index.js # Entry point for backend 
+              │ ├── sendOtp.js # Handles OTP logic 
+              │ └── users.db # Local user database 
+              └── README.md # Project documentation
 
 
 ## 🚀 Getting Started
@@ -44,12 +50,3 @@ node index.js
 
 cd frontend
 live-server  # or open index.html manually
-
-🤖 Chatbot Integration
-The platform includes a Gemini AI-powered chatbot to assist users through text and voice.
-
-🎯 Purpose
-This project was built as part of a hackathon challenge to improve digital public service accessibility, especially for rural or underserved communities.
-
-📄 License
-This project is open source under the MIT License.
