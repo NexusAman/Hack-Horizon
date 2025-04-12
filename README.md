@@ -24,13 +24,13 @@ Hack-Horizon is a citizen-centric platform designed to streamline access to vari
 
 ## 📦 Folder Structure
 
-Hack-Horizon/ ├── frontend/ # UI and visual assets 
-              │ └── assests/images # Scheme and UI images 
-              ├── backend/ # Node.js server and logic 
-              │ ├── index.js # Entry point for backend 
-              │ ├── sendOtp.js # Handles OTP logic 
-              │ └── users.db # Local user database 
-              └── README.md # Project documentation
+Hack-Horizon/ ├── frontend/ # UI and visual assets\
+              │ └── assests/images # Scheme and UI images\ 
+              ├── backend/ # Node.js server and logic\
+              │ ├── index.js # Entry point for backend\ 
+              │ ├── sendOtp.js # Handles OTP logic\
+              │ └── users.db # Local user database\
+              └── README.md # Project documentation\
 
 
 ## 🚀 Getting Started
