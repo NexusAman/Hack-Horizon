@@ -1,0 +1,159 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8e8d1;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Panel */
+.left-panel {
+    background-color: #bb6429;
+    color: white;
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.govt-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.emblem {
+    height: 70px;
+}
+
+.welcome-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.welcome-text span {
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.illustration {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Right Panel */
+.right-panel {
+    flex: 1;
+    background-color: #fcebd2;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modern card-style form box */
+.form-box {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+.form-box:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.login-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: lowercase;
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Shared form style */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.login-form input {
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fffefc;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.login-form input:focus {
+    border-color: #195b94;
+    box-shadow: 0 0 0 3px rgba(25, 91, 148, 0.2);
+}
+
+button {
+    padding: 14px;
+    font-size: 18px;
+    background-color: #195b94;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #144974;
+}
+
+/* Status/Error Message */
+#status {
+    font-size: 14px;
+    margin-top: 15px;
+    color: red;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-panel,
+    .right-panel {
+        flex: unset;
+        width: 100%;
+        padding: 30px;
+    }
+
+    .form-box {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+}
